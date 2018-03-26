@@ -12,11 +12,11 @@ int romanToInt(char* s) {
         return 0;
     }
     int i = strlen(s)- 1, j = 0, sum = romatoi(s[i]);
-    for(j = i-1; j >= 0; j--) {
-        if(romatoi(s[i]) > romatoi(s[j])) {
-            sum -= romatoi(s[j]);
+    for(j = i; j > 0; j--) {
+        if(romatoi(s[j]) > romatoi(s[j-1])) {
+            sum -= romatoi(s[j-1]);
         } else {
-            sum += romatoi(s[j]);
+            sum += romatoi(s[j-1]);
         }
     }
     return sum;
